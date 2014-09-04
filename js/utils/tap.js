@@ -441,7 +441,7 @@ function tapEnableTouchEvents() {
 }
 
 function tapIgnoreEvent(e) {
-  if(e.isTapHandled) return true;
+  if(e.isTapHandled || ionic.tap.isElementTapDisabled(e.target)) return true;
   e.isTapHandled = true;
 
   if( ionic.scroll.isScrolling && ionic.tap.containsOrIsTextInput(e.target) ) {
